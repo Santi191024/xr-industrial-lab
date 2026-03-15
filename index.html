@@ -11,6 +11,13 @@
 
   <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe-master.min.js"></script>
 
+  <style>
+    .rs-base {
+      transform: scale(0.60);
+      transform-origin: top left;
+    }
+  </style>
+
   <script>
     window.addEventListener('load', () => {
       const loadTime = performance.now() - startTime;
@@ -51,13 +58,12 @@
 
     <a-sky color="#ECECEC"></a-sky>
 
-    <!-- Texto visible dentro de la escena -->
     <a-text
       id="latencyLabel"
       value="Cargando..."
-      position="-1.8 2.8 -3"
+      position="-1 2.7 -3"
       color="black"
-      width="6">
+      width="4">
     </a-text>
   </a-scene>
 </body>
