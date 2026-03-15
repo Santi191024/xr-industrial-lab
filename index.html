@@ -3,12 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XR Industrial Lab - Parte A</title>
+  <title>XR Industrial Lab - Parte B</title>
+
+  <script>
+    const startTime = performance.now();
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe-master.min.js"></script>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loadTime = performance.now() - startTime;
+      const label = document.getElementById('latencyLabel');
+      if (label) {
+        label.setAttribute('value', 'Carga inicial: ' + loadTime.toFixed(2) + ' ms');
+      }
+    });
+  </script>
 </head>
 <body>
-  <a-scene>
+  <a-scene stats>
     <a-box
       position="0 1 -3"
       rotation="0 45 0"
@@ -36,6 +50,15 @@
     </a-plane>
 
     <a-sky color="#ECECEC"></a-sky>
+
+    <!-- Texto visible dentro de la escena -->
+    <a-text
+      id="latencyLabel"
+      value="Cargando..."
+      position="-1.8 2.8 -3"
+      color="black"
+      width="6">
+    </a-text>
   </a-scene>
 </body>
 </html>
